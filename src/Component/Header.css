@@ -1,0 +1,31 @@
+.emoji-navbar {
+    padding: 15px;
+    position: relative;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 33px;
+    text-align: center;
+    color: #333;
+  }
+  
+.emoji-navbar img {
+  position: relative;
+  padding: 0 14px; 
+  height: 35px;
+}
+
+.github{
+  font-size: 15px;
+  float:right;
+  border: 1px solid #f5f5f5;  
+  background-color: #333;
+  color: white;
+  height: 30px;
+  width: 16%;
+  text-decoration: none;
+  padding-top: 8px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-top: 2%;
+}
+
+
