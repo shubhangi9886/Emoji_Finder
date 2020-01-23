@@ -8,7 +8,7 @@ function Emoji_Header() {
     <img  alt='t'src={logo1}/>    
       Emoji Search
     <img alt='t'src={logo2}/>
-    <a className="github" href="  ">Fork me on GitHub</a>
+    <a className="github" href="https://github.com/shubhangi9886/Emoji_Finder">Fork me on GitHub</a>
     </div>
 }
 

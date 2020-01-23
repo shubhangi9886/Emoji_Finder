@@ -26,15 +26,16 @@
     top: 8px;
     right: 10px;
     color: #ccc;
-    display: none;
+    display: none; 
     margin-top: -10px;
     margin-left: 80%;
+    font-size: 15px;  
 }
 
 .line{
-    padding: 2%;
+    padding: 0.5%;
 }
 
-.emoji_copy:hover {
-  display: inline-block;
+.emoji-finder:hover .emoji_copy{
+  display: block;
 }

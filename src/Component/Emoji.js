@@ -7,17 +7,24 @@ class Filter extends React.Component {
 		super ();
 		this.state = {emoji_find : ''}	
 		}
-	
-	
+		
     handleChange = (event) => {
 		this.setState({
 			emoji_find: event.target.value
 		});
 	}
-	
-   render() {
-		const {emoji_find} = this.state;
 
+	copyToClipboard = (symbol) => {
+		var textField = document.createElement('textarea')
+		textField.innerText = symbol
+		document.body.appendChild(textField)
+		textField.select()
+		document.execCommand('copy')
+		textField.remove()
+	}
+	
+	render() {
+		const {emoji_find} = this.state;
 		const filteredEmoji = Data.filter( emoji_search =>  {
 			if (emoji_search.title.toLowerCase().indexOf(emoji_find.toLowerCase()) !== -1){
 				return true;
@@ -27,28 +34,28 @@ class Filter extends React.Component {
 			}	
 			return false;
 		});
+	
+		return (
+			<div>
+				<div className="search_input">
+					<input className="input" type="text" placeholder="Search for Emoji......" onChange={this.handleChange} />
+				</div>
 
-	return (
-		<div>
-			<div className="search_input">
-				<input className="input" type="text" placeholder="Search for......" onChange={this.handleChange} />
+				<div className="line">
+					<hr></hr>
+				</div>
+
+			<div className="emoji-finder">
+				{filteredEmoji.slice(0,20).map((emoji_find, index) => 
+					 <div key={index} className="itmes">
+						<span className="emoji">{emoji_find.symbol} {emoji_find.title}
+						<p onClick={() => this.copyToClipboard(emoji_find.symbol) } className="emoji_copy">Click to Copy Emoji</p>
+						</span>
+					</div>
+				)} 
 			</div>
-		<div> 
-
-		<div className="line">
-			<hr></hr>
-		</div> 
-
-		{filteredEmoji.slice(0,20).map(function(emoji_find,index){
-		return <div key={index} className="itmes">
-				<span className="emoji">{emoji_find.symbol} {emoji_find.title}
-                <span className="emoji_copy" onClick={()=>this.copyToClipboard(emoji_find.symbol)}>Click to Copy Emoji</span>
-				{/* <span className="emoji-title">{emoji_find.title}</span> */}
-				</span>
 			</div>
-            })}
-		</div>
-		</div>
-	)}		
+		)
+	}			
 }
 export default Filter;
